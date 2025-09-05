@@ -79,7 +79,7 @@ runs:
           -e RUN_ID="${{ github.run_id }}" \
           -e JOB_ID="${{ github.job }}" \
           -e STEP_ID="${{ inputs.step-id }}" \
-          public.ecr.aws/l7o7z1g8/actions/assets-gosec-scanner:d7fb04275beed304de705f146abcecd3da61adc7 \
+          public.ecr.aws/l7o7z1g8/actions/assets-gosec-scanner:70fb6d931c7e9c641aa6f0c9dc808018a4cd00ec \
           --mode single
 
     - id: process-outputs
