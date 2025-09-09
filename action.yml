@@ -69,18 +69,18 @@ runs:
           public.ecr.aws/l7o7z1g8/actions/assets-plugin-chain-utils:2312e778e9df96bc098dde0a12c6c1857c8eec54 \
           generate-references --asset-type "CODE"
 
-    # - name: Run SCC compliance plugin for tags
-    #   shell: bash
-    #   run: |
-    #     docker run --rm \
-    #       -u root \
-    #       -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE \
-    #       -e GITHUB_WORKSPACE="$GITHUB_WORKSPACE" \
-    #       -e RUN_ID="${{ github.run_id }}" \
-    #       -e JOB_ID="${{ github.job }}" \
-    #       -e STEP_ID="${{ inputs.step-id }}" \
-    #       public.ecr.aws/l7o7z1g8/actions/assets-scc-scanner:1a81610bbb3d6e6f2c4586f21d85638e56718a70 \
-    #       --mode single
+    - name: Run SCC compliance plugin for tags
+      shell: bash
+      run: |
+        docker run --rm \
+          -u root \
+          -v $GITHUB_WORKSPACE:$GITHUB_WORKSPACE \
+          -e GITHUB_WORKSPACE="$GITHUB_WORKSPACE" \
+          -e RUN_ID="${{ github.run_id }}" \
+          -e JOB_ID="${{ github.job }}" \
+          -e STEP_ID="${{ inputs.step-id }}" \
+          public.ecr.aws/l7o7z1g8/actions/assets-scc-scanner:9393ab805bb706c829c471e1dfc8e6ee73541253 \
+          --mode single
 
     - name: Run gosec compliance plugin
       shell: bash
